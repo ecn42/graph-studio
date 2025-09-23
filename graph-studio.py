@@ -1158,7 +1158,7 @@ def export_image(
             width=width,
             height=height,
             scale=scale,
-            engine="kaleido",
+            #engine="kaleido",
         )
         return img
     except Exception as e:

@@ -1,1 +1,33 @@
-/venv
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# C extensions
+*.so
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+
+# Database files
+*.db
+*.sqlite3
+
+# Virtual environment
+venv/
+.venv/
+
+
+
+# Jupyter/IPython Notebook
+.ipynb_checkpoints/
+
+# IDEs & OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+patchfunds.patch
