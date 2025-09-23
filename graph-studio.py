@@ -2330,43 +2330,43 @@ with exp_c1:
     exp_width = st.number_input("Export width (px)", 400, 8000, int(width_px), 50)
     exp_height = st.number_input("Export height (px)", 300, 8000, int(height_px), 50)
 
-with exp_c2:
-    if st.button("Download image"):
-        # Decide which width/height to pass to the exporter
-        width_to_use = int(exp_width)
-        height_to_use = int(exp_height)
-        if use_layout_size_for_export:
-            if fig.layout.width:
-                width_to_use = int(fig.layout.width)
-            if fig.layout.height:
-                height_to_use = int(fig.layout.height)
-
-        img_bytes = export_image(
-            fig=fig,
-            fmt=export_fmt,
-            width=width_to_use,
-            height=height_to_use,
-            scale=float(export_scale),
-            caption_text=caption_text,
-            base_font_size=int(base_font_size),
-            font_color=font_color,
-            extra_l_margin=int(extra_l_margin),
-            caption_yshift=int(caption_yshift),
-        )
-        if img_bytes:
-            mime = (
-                "image/png"
-                if export_fmt == "png"
-                else "image/svg+xml"
-                if export_fmt == "svg"
-                else "application/pdf"
-            )
-            st.download_button(
-                "Save file",
-                data=img_bytes,
-                file_name=f"graph.{export_fmt}",
-                mime=mime,
-            )
+# with exp_c2:
+#     if st.button("Download image"):
+#         # Decide which width/height to pass to the exporter
+#         width_to_use = int(exp_width)
+#         height_to_use = int(exp_height)
+#         if use_layout_size_for_export:
+#             if fig.layout.width:
+#                 width_to_use = int(fig.layout.width)
+#             if fig.layout.height:
+#                 height_to_use = int(fig.layout.height)
+#
+#         img_bytes = export_image(
+#             fig=fig,
+#             fmt=export_fmt,
+#             width=width_to_use,
+#             height=height_to_use,
+#             scale=float(export_scale),
+#             caption_text=caption_text,
+#             base_font_size=int(base_font_size),
+#             font_color=font_color,
+#             extra_l_margin=int(extra_l_margin),
+#             caption_yshift=int(caption_yshift),
+#         )
+#         if img_bytes:
+#             mime = (
+#                 "image/png"
+#                 if export_fmt == "png"
+#                 else "image/svg+xml"
+#                 if export_fmt == "svg"
+#                 else "application/pdf"
+#             )
+#             st.download_button(
+#                 "Save file",
+#                 data=img_bytes,
+#                 file_name=f"graph.{export_fmt}",
+#                 mime=mime,
+#            )
 
 with exp_c3:
     if chart_type == "Pie":
