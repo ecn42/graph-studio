@@ -42,13 +42,25 @@ RUN pip install --no-cache-dir -r requirements.txt
 # If needed, you can ensure compatible versions by uncommenting:
 # RUN pip install --no-cache-dir "plotly>=6.1.1" "kaleido>=1.0.0"
 # Install system dependencies, including Chromium
+
+
+# Replace your Step that installs Chromium
 RUN apt-get update && apt-get install -y \
-    chromium-browser \
+    chromium \
+    chromium-driver \
+    fonts-liberation \
+    libnss3 \
+    libasound2 \
+    libgbm1 \
+    libgtk-3-0 \
     wget \
     gnupg \
     ca-certificates \
-    && rm -rf /var/lib/apt/lists/*  # Clean up to reduce image size
-    
+  && rm -rf /var/lib/apt/lists/*
+
+# Make sure app points to the installed Chromium
+ENV CHROMIUM_BINARY=/usr/bin/chromium
+
 # Copy the rest of the app
 COPY . /app
 
