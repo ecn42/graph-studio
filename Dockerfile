@@ -41,7 +41,14 @@ COPY requirements.txt /app/requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
 # If needed, you can ensure compatible versions by uncommenting:
 # RUN pip install --no-cache-dir "plotly>=6.1.1" "kaleido>=1.0.0"
-
+# Install system dependencies, including Chromium
+RUN apt-get update && apt-get install -y \
+    chromium-browser \
+    wget \
+    gnupg \
+    ca-certificates \
+    && rm -rf /var/lib/apt/lists/*  # Clean up to reduce image size
+    
 # Copy the rest of the app
 COPY . /app
 

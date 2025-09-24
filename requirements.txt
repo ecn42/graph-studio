@@ -48,3 +48,7 @@ typing_extensions==4.15.0
 tzdata==2025.2
 urllib3==2.5.0
 watchdog==6.0.0
+bs4
+selenium
+webdriver-manager
+lxml
